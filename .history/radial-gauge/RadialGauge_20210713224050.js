@@ -30,7 +30,7 @@ function wrap(text, width) {
       tspan = text
         .text(null)
         .append("tspan")
-        .attr("x", x)
+        .attr("x", x)se
         .attr("y", y)
         .attr("dy", dy + "em");
     while ((word = words.pop())) {
@@ -173,30 +173,6 @@ const drawRadial = (props) => {
       var Jstan = props.angle * 2 * Jpro - props.angle;
       var JiAngle = (Jstan * Math.PI * 2) / 360;
       var Kpro = (i + 1) / len;
-      var Kstan = props.angle * 2 * Kpro - props.angle;
-      var KiAngle = (Kstan * Math.PI * 2) / 360;
-      var fill_generator = d3
-        .arc()
-        .innerRadius(cutoutCalc)
-        .outerRadius(radius)
-        .startAngle(JiAngle)
-        .endAngle(KiAngle);
-      var gauge_fill = g
-        .append("path")
-        .attr("class", `gaugeFill-${i}`)
-        .attr("d", fill_generator)
-        .attr("fill", props.fill_colors[i])
-        .attr("stroke", `${props.fill_colors[i]}`)
-        .attr("stroke-width", "1px");
-    });
-  } else if (props.gauge_fill_type === "threshold") {
-    let len = props.fill_colors.length;
-    const anum = [0, props.percentage1, props.percentage2, 100];
-    props.fill_colors.map((d, i) => {
-      var Jpro = anum[i] / 100;
-      var Jstan = props.angle * 2 * Jpro - props.angle;
-      var JiAngle = (Jstan * Math.PI * 2) / 360;
-      var Kpro = anum[i + 1] / 100;
       var Kstan = props.angle * 2 * Kpro - props.angle;
       var KiAngle = (Kstan * Math.PI * 2) / 360;
       var fill_generator = d3

@@ -856,9 +856,7 @@ looker.plugins.visualizations.add({
         target_label_font: config.target_label_font,
         target_label_padding: config.target_label_padding,
         wrap_width: 100,
-        percentage1: config.percentage1,
-        percentage2: config.percentage2,
-        
+        percen
       };
       // Finally update the state with our new data
       viz.chart = ReactDOM.render(

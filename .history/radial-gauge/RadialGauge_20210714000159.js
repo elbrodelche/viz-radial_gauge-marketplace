@@ -169,36 +169,44 @@ const drawRadial = (props) => {
   } else if (props.gauge_fill_type === "segment") {
     let len = props.fill_colors.length;
     props.fill_colors.map((d, i) => {
-      var Jpro = i / len;
-      var Jstan = props.angle * 2 * Jpro - props.angle;
-      var JiAngle = (Jstan * Math.PI * 2) / 360;
-      var Kpro = (i + 1) / len;
-      var Kstan = props.angle * 2 * Kpro - props.angle;
-      var KiAngle = (Kstan * Math.PI * 2) / 360;
-      var fill_generator = d3
-        .arc()
-        .innerRadius(cutoutCalc)
-        .outerRadius(radius)
-        .startAngle(JiAngle)
-        .endAngle(KiAngle);
-      var gauge_fill = g
-        .append("path")
-        .attr("class", `gaugeFill-${i}`)
-        .attr("d", fill_generator)
-        .attr("fill", props.fill_colors[i])
-        .attr("stroke", `${props.fill_colors[i]}`)
-        .attr("stroke-width", "1px");
-    });
-  } else if (props.gauge_fill_type === "threshold") {
-    let len = props.fill_colors.length;
-    const anum = [0, props.percentage1, props.percentage2, 100];
-    props.fill_colors.map((d, i) => {
-      var Jpro = anum[i] / 100;
-      var Jstan = props.angle * 2 * Jpro - props.angle;
-      var JiAngle = (Jstan * Math.PI * 2) / 360;
-      var Kpro = anum[i + 1] / 100;
-      var Kstan = props.angle * 2 * Kpro - props.angle;
-      var KiAngle = (Kstan * Math.PI * 2) / 360;
+      if (i === 0) {
+        var Jpro = 0;
+        var Jstan = -83;
+        var JiAngle = -1.4486232791552935;
+        var Kpro = 0.3333333333333333;
+        var Kstan = -27.66666666666667;
+        var KiAngle = -0.48287442638509787;
+      }
+      if (i === 1) {
+       var Jpro = 0.3333333333333333;
+       Jstan = -27.66666666666667;
+       JiAngle = -0.48287442638509787;
+       Kpro = 0.6666666666666666;
+       Kstan = 27.666666666666657;
+       KiAngle = 0.48287442638509764;
+      }
+      if (i === 2) {
+       Jpro = 0.6666666666666666;
+       Jstan = 27.666666666666657;
+       JiAngle = 0.48287442638509764;
+       Kpro = 1;
+       Kstan = 83;
+       KiAngle = 1.4486232791552935;
+      }
+
+      // console.log('------------ Color',d)
+      // var Jpro = i / len;
+      // console.log(">>>>>>>>> Jpro", Jpro);
+      // var Jstan = props.angle * 2 * Jpro - props.angle;
+      // console.log(">>>>>>>>> Jstan", Jstan);
+      // var JiAngle = (Jstan * Math.PI * 2) / 360;
+      // console.log(">>>>>>>>> JiAngle", JiAngle);
+      // var Kpro = (i + 1) / len;
+      // console.log(">>>>>>>>> Kpro", Kpro);
+      // var Kstan = props.angle * 2 * Kpro - props.angle;
+      // console.log(">>>>>>>>> Kstan", Kstan);
+      // var KiAngle = (Kstan * Math.PI * 2) / 360;
+      // console.log(">>>>>>>>> KiAngle", KiAngle);
       var fill_generator = d3
         .arc()
         .innerRadius(cutoutCalc)

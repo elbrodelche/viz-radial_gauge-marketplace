@@ -189,16 +189,19 @@ const drawRadial = (props) => {
         .attr("stroke", `${props.fill_colors[i]}`)
         .attr("stroke-width", "1px");
     });
-  } else if (props.gauge_fill_type === "threshold") {
+  } else if (props.gauge_fill_type === "tr") {
     let len = props.fill_colors.length;
-    const anum = [0, props.percentage1, props.percentage2, 100];
+    const anum = [0, 20, 90, 100];
     props.fill_colors.map((d, i) => {
+      // var Jpro = i / len;
       var Jpro = anum[i] / 100;
       var Jstan = props.angle * 2 * Jpro - props.angle;
       var JiAngle = (Jstan * Math.PI * 2) / 360;
+
       var Kpro = anum[i + 1] / 100;
       var Kstan = props.angle * 2 * Kpro - props.angle;
       var KiAngle = (Kstan * Math.PI * 2) / 360;
+
       var fill_generator = d3
         .arc()
         .innerRadius(cutoutCalc)

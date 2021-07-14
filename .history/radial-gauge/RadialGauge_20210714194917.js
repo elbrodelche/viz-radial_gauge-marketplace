@@ -191,6 +191,7 @@ const drawRadial = (props) => {
     });
   } else if (props.gauge_fill_type === "threshold") {
     let len = props.fill_colors.length;
+    console.log(props.percentage1);
     const anum = [0, props.percentage1, props.percentage2, 100];
     props.fill_colors.map((d, i) => {
       var Jpro = anum[i] / 100;

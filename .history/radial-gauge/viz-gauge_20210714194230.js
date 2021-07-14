@@ -557,16 +557,25 @@ looker.plugins.visualizations.add({
       order: 80,
       label: "Gauge first %",
       min: 0,
-      default: 30,
+      default: defaults.experimentalVal,
       section: "Threshold",
       type: "number",
       placeholder: "Any positive number",
     },
     percentage2: {
-      order: 81,
+      order: 80,
       label: "Gauge second %",
       min: 0,
-      default: 60,
+      default: defaults.experimentalVal,
+      section: "Threshold",
+      type: "number",
+      placeholder: "Any positive number",
+    },
+    percentage3: {
+      order: 7,
+      label: "Gauge third %",
+      min: 0,
+      default: defaults.experimentalVal,
       section: "Threshold",
       type: "number",
       placeholder: "Any positive number",
@@ -576,6 +585,7 @@ looker.plugins.visualizations.add({
       label: "Background Color",
       default: "#CECECE",
       section: "Style",
+      display: "color",
       order: 20,
     },
     spinner_color: {
@@ -856,9 +866,6 @@ looker.plugins.visualizations.add({
         target_label_font: config.target_label_font,
         target_label_padding: config.target_label_padding,
         wrap_width: 100,
-        percentage1: config.percentage1,
-        percentage2: config.percentage2,
-        
       };
       // Finally update the state with our new data
       viz.chart = ReactDOM.render(

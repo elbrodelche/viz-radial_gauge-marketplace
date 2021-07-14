@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SSF from "ssf";
 
-const DEFAULT_MAX_RANGE = null;
+const DEFAULT_MAX_RANGE = null
 
 function processPivot(data, queryResponse, config, viz, pivotKey) {
   data = data.length === undefined ? [data] : data;
@@ -553,29 +553,12 @@ looker.plugins.visualizations.add({
       default: "#0092E5",
       order: 10,
     },
-    percentage1: {
-      order: 80,
-      label: "Gauge first %",
-      min: 0,
-      default: 30,
-      section: "Threshold",
-      type: "number",
-      placeholder: "Any positive number",
-    },
-    percentage2: {
-      order: 81,
-      label: "Gauge second %",
-      min: 0,
-      default: 60,
-      section: "Threshold",
-      type: "number",
-      placeholder: "Any positive number",
-    },
     background_color: {
       type: "string",
       label: "Background Color",
       default: "#CECECE",
       section: "Style",
+      display: "color",
       order: 20,
     },
     spinner_color: {
@@ -603,7 +586,7 @@ looker.plugins.visualizations.add({
         { Progress: "progress" },
         { "Progress Segment": "progress-gradient" },
         { Segment: "segment" },
-        { Threshold: "threshold" },
+        { threshold: "segment" },
       ],
       default: "progress",
       order: 1,
@@ -856,9 +839,6 @@ looker.plugins.visualizations.add({
         target_label_font: config.target_label_font,
         target_label_padding: config.target_label_padding,
         wrap_width: 100,
-        percentage1: config.percentage1,
-        percentage2: config.percentage2,
-        
       };
       // Finally update the state with our new data
       viz.chart = ReactDOM.render(
